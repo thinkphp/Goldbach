@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Goldbach's conjecture</title>
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+h1 {color: green}
+body, html, input, button {font-size: 30px}
+</style>
+</head>
+<body>
+
+<h1>Goldbach's conjecture.</h1>
+<p>Every even integer greater than 4 can be expressed as the sum of two primes.</p>
+
+<input id="myInput" value="" autocomplete="off">
+<button id="myBtn">Do it</button>
+<div id="output"></div>
+
+<script>
+function isPrime(n){
+
+         for(var i = 2; i * i <= n; ++i) {
+         
+                 if(n % i == 0) return 0;
+         } 
+         
+         return 1;
+}
+
+var input = document.getElementById("myInput"),
+
+    btn = document.getElementById("myBtn"),
+    
+    output = document.getElementById("output");
+  
+btn.addEventListener("click", function(event) {
+
+    var inp = document.getElementById("myInput").value;
+    
+        var numbers = Array.from(inp.split(" "));
+        
+            output.innerHTML = ""
+                
+            numbers.forEach(function(val){
+            
+                    var val = parseInt(val)  
+                    
+                            var k = 2; 
+                            
+                            while(k <= val/2){
+                            
+                            if(isPrime(val-k) && isPrime(k)) {
+                            
+                                output.innerHTML += val + " = " + k + " + " + (val - k) + "<br/>" 
+                                
+                            } k++; }
+        output.innerHTML += "<hr/>"             
+            });
+        
+});
+
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("myBtn").click();
+  }
+});
+</script>
+<p>Created by <a href="http://thinkphp.ro">Adrian Statescu</a></>
+</body>
+</html>
+
