@@ -9,3 +9,5 @@
 * https://codepen.io/thinkphp/pen/vYEJQPJ (JavaScript)
 
 * https://ideone.com/JUuKtX (C language)
+
+* https://ideone.com/oAucFT (Python 3)
